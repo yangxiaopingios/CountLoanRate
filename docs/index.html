@@ -6,16 +6,21 @@
 </head>
 <body>
 	<br/><br/>
-	请选择贷款利率计算方式: <select>
-		<option>月固定利率</option>
-		<option>日利率</option>
+	请输入贷款金额: <input id="number" value="1000"></input>
+	<br/><br/>
+	请选择贷款利率计算方式: <select id="type">
+	<option value="2">日利率</option>
+		<option value="1">月固定利率</option>
 	</select>
 	<br/><br/>
-	请输入贷款利率: <input></input>
+	请输入贷款利率: <input id="rate" value="0.028"></input>%
+	<br/><br/>
+	贷款周期:<input id="cycle" value="12"></input>个月
+	<br/><br/>
+	<button id="submit">计算</button>
+	<br/><br/>
 	<div id="content"></div>
 	<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
-	<script type="text/javascript">
-		$("#content").html("Hello <b>world</b>!");
-	</script>
+	<script src="js/index.js"></script>
 </body>
 </html>
