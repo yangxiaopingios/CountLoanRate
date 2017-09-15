@@ -2,7 +2,7 @@
  * @Author: yangxiooping
  * @Date:   2017-09-15 10:20:39
  * @Last Modified by:   yangxiooping
- * @Last Modified time: 2017-09-15 11:42:17
+ * @Last Modified time: 2017-09-15 15:27:15
  */
 ;
 (function() {
@@ -11,7 +11,7 @@
             //贷款金额
             var number = $("#number").val();
             //贷款类型
-            var selectTypeVal = 2;//$("#type").val();
+            var selectTypeVal = $("#type").val();
             //贷款利率
             var rate = $("#rate").val();
             //还款周期
@@ -62,7 +62,19 @@
                         break;
                     }
                 case "2":
-                    { //日利率
+                    {
+                    //日利率
+                        var temp = 0;
+                        var b = rate*30*0.01;
+                        var d = 12;
+                        for (var i = 0; i < d; i++) {
+                            temp += Math.pow((1 + b), i);
+                        }
+                        var c = number / temp;
+
+                        console.log(Math.round((c + number * b)*100)/100); // 输出每月应还金额
+                        console.log(Math.round(((c + number * b) * d)*100)/100); // 输出总还款金额
+                        console.log(Math.round(((c + number * b) * d - number)*100)/100); // 输出一共还款利息
                         break;
                     }
             }
